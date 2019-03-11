@@ -8,21 +8,10 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<th scope="row">1</th>
-			<td>Practise Cajon</td>
-			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labor in.</td>
-			<td class="nm-btn-group">
-				<a href="#" title="Edit"><img src="./../../../assets/images/edit.png"></a>
-				<a href="#" title="Delete"><img src="./../../../assets/images/trash.png"></a>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">2</th>
-			<td>Practise Cajon</td>
-			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labor in.</td>
+		<tr *ngFor="let note of notes; let i = index">
+			<th scope="row">{{ i + 1 }}</th>
+			<td>{{ note.title }}</td>
+			<td>{{ note.content }}</td>
 			<td class="nm-btn-group">
 				<a href="#" title="Edit"><img src="./../../../assets/images/edit.png"></a>
 				<a href="#" title="Delete"><img src="./../../../assets/images/trash.png"></a>

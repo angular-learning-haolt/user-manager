@@ -2,3 +2,7 @@
 	display: flex;
 	justify-content: space-around;
 }
+
+.nm-btn-group img {
+    width: 30px;
+}
