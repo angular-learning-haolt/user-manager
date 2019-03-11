@@ -49,4 +49,16 @@ export class NoteService {
 				})[0].id : 0;
 		return lastID;
 	}
+
+	getNoteByID(id: number) {
+		let foundNote = this.notes.filter(x => x.id === id);
+		return foundNote;
+	}
+
+	deleteNote(id: number) {
+		let resultNotes = this.notes.filter(note => note.id !== id);
+		this.notes = resultNotes;
+		console.log(this.notes);
+		return this.notes;
+	}	
 }

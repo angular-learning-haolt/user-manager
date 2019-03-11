@@ -19,4 +19,16 @@ export class NoteListComponent implements OnInit {
 		this.notes = this._noteService.getAllNotes();		
 	}
 
+	onEditNote(id : number) {
+		// alert('Do you delete this note?');
+		// console.log(id);
+		console.log(this._noteService.getNoteByID(id));
+	}
+
+	onDeleteNote(id : number) {
+		alert('Do you delete this note?');
+		// console.log(id);
+		this._noteService.deleteNote(id);
+	}
+
 }

@@ -13,8 +13,16 @@
 			<td>{{ note.title }}</td>
 			<td>{{ note.content }}</td>
 			<td class="nm-btn-group">
-				<a href="#" title="Edit"><img src="./../../../assets/images/edit.png"></a>
-				<a href="#" title="Delete"><img src="./../../../assets/images/trash.png"></a>
+				<a href="#" title="Edit"
+					(click)="onEditNote(note.id)"
+				>
+					<img src="./../../../assets/images/edit.png">
+				</a>
+				<a href="#" title="Delete"
+					(click)="onDeleteNote(note.id); $event.preventDefault();"
+				>
+					<img src="./../../../assets/images/trash.png">
+				</a>
 			</td>
 		</tr>
 	</tbody>
