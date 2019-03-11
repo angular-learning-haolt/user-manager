@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'nm-note-form',
-  templateUrl: './note-form.component.html',
-  styleUrls: ['./note-form.component.css']
+	selector: 'nm-note-form',
+	templateUrl: './note-form.component.html',
+	styleUrls: ['./note-form.component.css']
 })
 export class NoteFormComponent implements OnInit {
 
-  constructor() { }
+	public title : string;
+	public content : string;
 
-  ngOnInit() {
-  }
+	constructor() { }
 
+	ngOnInit() {
+	}
+
+	addNote() {
+		console.log(this.title, this.content);
+	}
 }

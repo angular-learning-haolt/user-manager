@@ -3,15 +3,24 @@
 	<div class="card-body">
 		<div class="form-group">
 		    <label>Title</label>
-		    <input type="text" class="form-control" name="title">
+		    <input type="text" 
+		    	class="form-control" 
+		    	[(ngModel)]="title"
+		    >
 	  	</div>
 		<div class="form-group">
 		    <label>Content</label>
-		    <textarea class="form-control" name="content"></textarea>
+		    <textarea class="form-control"
+				 [(ngModel)]="content"
+		    ></textarea>
 		</div>
-		<div class="btn-group nm-btn-group">
-			<a href="#" title="Cancel"><img src="./../../../assets/images/cancel.png"></a>
-			<a href="#" title="OK"><img src="./../../../assets/images/checked.png"></a>
+		<div class="nm-btn-group">
+			<button class="btn btn-secondary">Cancel</button>
+			<button class="btn btn-info"
+				(click)="addNote()"
+			>
+				Add
+			</button>
 		</div>
 	</div>
 </div>
