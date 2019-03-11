@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.nm-title { 
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	text-align: center;
+	color: #333;
+}
+
+.nm-wrap {
+	background: transparent;
+	min-height: 100vh;
+}
