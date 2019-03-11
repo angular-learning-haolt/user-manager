@@ -7,18 +7,24 @@ import { NoteListComponent } from './components/note-list/note-list.component';
 import { NoteItemComponent } from './components/note-item/note-item.component';
 import { NoteFormComponent } from './components/note-form/note-form.component';
 
+
+// Service
+import { NoteService } from './services/note.service';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    NoteListComponent,
-    NoteItemComponent,
-    NoteFormComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NoteListComponent,
+        NoteItemComponent,
+        NoteFormComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule
+    ],
+    providers: [
+        NoteService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
