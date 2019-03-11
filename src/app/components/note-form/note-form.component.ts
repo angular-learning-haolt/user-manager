@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NoteService } from './../../services/note.service';
+import { Note } from './../../models/note.class';
+
 
 @Component({
 	selector: 'nm-note-form',
@@ -10,12 +13,15 @@ export class NoteFormComponent implements OnInit {
 	public title : string;
 	public content : string;
 
-	constructor() { }
+	constructor(
+		private _noteService : NoteService
+	) { }
 
 	ngOnInit() {
 	}
 
 	addNote() {
-		console.log(this.title, this.content);
+		let note = new Note(null, this.title, this.content);
+		this._noteService.addNote(note);
 	}
 }
