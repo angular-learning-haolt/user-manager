@@ -3,14 +3,26 @@
 		<h1 class="nm-title mt-4">{{ title }}</h1>
 		<div class="row">
 			<div class="col-md-1 offset-md-11">
-				<a href="#" title="Add_new">
-					<img src="./../assets/images/add_new.png" alt="Add_new" />
+				<a href="#" title="Add_new"
+					(click)="onClickInteractingForm(); $event.preventDefault();"
+				>
+					
+					<ng-container *ngIf="isShowForm === false; else caseCloseForm">
+						<img src="./../assets/images/add_new.png" alt="Open Form" />
+					</ng-container>
+					<ng-template #caseCloseForm>
+						<img src="./../assets/images/close.png" alt="Close Form" />
+					</ng-template>
 				</a>
 			</div>
 			<div class="col">
 				<nm-note-list></nm-note-list>
 			</div>
-			<div class="col-4">
+			<div [ngClass]="{
+					'col-4': true,
+					'd-none': !isShowForm
+				}"
+			>
 				<nm-note-form></nm-note-form>
 			</div>
 		</div>

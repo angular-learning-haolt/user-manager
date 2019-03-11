@@ -14,7 +14,7 @@
 			<td>{{ note.content }}</td>
 			<td class="nm-btn-group">
 				<a href="#" title="Edit"
-					(click)="onEditNote(note.id)"
+					(click)="onEditNote(note.id); $event.preventDefault();"
 				>
 					<img src="./../../../assets/images/edit.png">
 				</a>
