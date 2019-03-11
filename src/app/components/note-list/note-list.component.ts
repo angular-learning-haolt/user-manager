@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NoteService } from './../../services/note.service';
 import { Note } from './../../models/note.class';
 
@@ -11,6 +11,8 @@ export class NoteListComponent implements OnInit {
 
 	public notes : Note[] = [];
 
+	@Input() isShowForm : boolean;
+
 	constructor(
 		private _noteService : NoteService
 	) { }
@@ -22,12 +24,15 @@ export class NoteListComponent implements OnInit {
 	onEditNote(id : number) {
 		// alert('Do you delete this note?');
 		// console.log(id);
-		console.log(this._noteService.getNoteByID(id));
+		this.isShowForm = !this.isShowForm;
+		console.log(this.isShowForm);
+		let foundNote = this._noteService.getNoteByID(id);
+		console.log(foundNote);
 	}
 
 	onDeleteNote(id : number) {
-		alert('Do you delete this note?');
-		// console.log(id);
+		let foundNote = this._noteService.getNoteByID(id);
+		alert(`Do you delete ${ foundNote[0].title } ?`);
 		this._noteService.deleteNote(id);
 	}
 
