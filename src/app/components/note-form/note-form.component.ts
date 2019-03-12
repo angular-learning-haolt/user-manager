@@ -40,7 +40,7 @@ export class NoteFormComponent implements OnInit {
 	onUpdateNote() {
 		this.currentNote.title = this.title ? this.title : this.currentNote.title;
 		this.currentNote.content = this.content ? this.content : this.currentNote.content;
-		console.log(this.currentNote);
+		// console.log(this.currentNote);
 		this.onCloseForm();
 	}
 }
