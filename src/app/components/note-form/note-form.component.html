@@ -21,7 +21,9 @@
 			    </textarea>
 			</div>
 			<div class="nm-btn-group">
-				<button class="btn btn-secondary">Cancel</button>
+				<button class="btn btn-secondary"
+					(click)="onCloseForm()"
+				>Cancel</button>
 				<button class="btn btn-info"
 					(click)="addNote()"
 				>
@@ -29,7 +31,7 @@
 				</button>
 				<!-- <input type="reset"
 				 	class="btn btn-info"
-					(click)="addNote()"
+					(click)="addNote(); $event.preventDefault();"
 					value="Add" 
 				> -->
 			</div>

@@ -13,30 +13,26 @@ export class NoteFormComponent implements OnInit {
 	public titleForm : string = 'Note Form';
 	public title : string = '';
 	public content : string = '';
-	public _currentNote : Note = new Note(null, '','');
+	// public _currentNote : Note = new Note(null, '','');
 
 	@Input() currentNote: Note;
-
+	@Input() isShowForm : boolean;
+	@Output('changeIsShowForm') 
+		changeIsShowForm = new EventEmitter();
 	constructor(
 		private _noteService : NoteService
 	) { 
 	}
 
 	ngOnInit() {
-		// this.handle();
 	}
-
-	// handle() {
-	// 	if (this.currentNote !== null) {
-	// 		this._currentNote = this.currentNote;
-	// 	}
-	// 	console.log(this._currentNote);
-	// }
 
 	addNote() {
 		let note = new Note(null, this.title, this.content);
 		this._noteService.addNote(note);
 	}
 
-
+	onCloseForm() {
+		this.changeIsShowForm.emit(this.isShowForm);
+	}
 }

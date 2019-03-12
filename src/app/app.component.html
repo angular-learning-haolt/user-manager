@@ -27,7 +27,9 @@
 				}"
 			>
 				<nm-note-form
+					[isShowForm]="isShowForm"
 					[currentNote]="currentNote"
+					(changeIsShowForm)="onClickInteractingForm()"
 				></nm-note-form>
 			</div>
 		</div>
