@@ -39,9 +39,9 @@ export class NoteListComponent implements OnInit {
 
 	onDeleteNote(id : number) {
 		let foundNote = this._noteService.getNoteByID(id);
-		alert(`Do you delete ${ foundNote.title } ?`);
-		this._noteService.deleteNote(id);
+		if (confirm(`Do you delete ${ foundNote.title } ?`)) {
+			this._noteService.deleteNote(id);
+		}
 		this.notes = this._noteService.getAllNotes();
 	}
-
 }
