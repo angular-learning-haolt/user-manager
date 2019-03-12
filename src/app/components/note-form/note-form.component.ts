@@ -13,7 +13,7 @@ export class NoteFormComponent implements OnInit {
 	public titleForm : string = 'Note Form';
 	public title : string = '';
 	public content : string = '';
-	// public _currentNote : Note = new Note(null, '','');
+	public errors : string[] = [];
 
 	@Input('currentNote') currentNote: Note;
 	@Input() isShowForm : boolean;
@@ -28,9 +28,12 @@ export class NoteFormComponent implements OnInit {
 	}
 
 	onAddNote() {
-		let note = new Note(null, this.title, this.content);
-		this._noteService.addNote(note);
-		this.onCloseForm();
+		let errors = this.validateForm();
+		if (errors.length <= 0) {
+			let note = new Note(null, this.title, this.content);
+			this._noteService.addNote(note);
+			this.onCloseForm();
+		}
 	}
 
 	onCloseForm() {
@@ -42,5 +45,25 @@ export class NoteFormComponent implements OnInit {
 		this.currentNote.content = this.content ? this.content : this.currentNote.content;
 		console.log(this.currentNote);
 		this.onCloseForm();
+	}
+
+	validateForm() {
+		if(this.title === '') {
+			let error = 'Please type title, you guys ^^';
+			this.errors.push(error);
+		}
+		if(this.content === '') {
+			let error = 'Please type content, you guys !';
+			this.errors.push(error);
+		}
+		else if(this.content.length > 5) {
+			let error = 'Sorry. Content dimension is not over 400 words.';
+			this.errors.push(error);
+		}
+		return this.errors;
+	}
+	
+	resetErrors() {
+		this.errors = [];
 	}
 }

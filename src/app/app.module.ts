@@ -11,13 +11,15 @@ import { FormsModule } from '@angular/forms';
 
 // Service
 import { NoteService } from './services/note.service';
+import { ErrorsComponent } from './components/errors/errors.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NoteListComponent,
         NoteItemComponent,
-        NoteFormComponent
+        NoteFormComponent,
+        ErrorsComponent
     ],
     imports: [
         BrowserModule,
