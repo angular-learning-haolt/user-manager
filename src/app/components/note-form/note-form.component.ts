@@ -27,12 +27,20 @@ export class NoteFormComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	addNote() {
+	onAddNote() {
 		let note = new Note(null, this.title, this.content);
 		this._noteService.addNote(note);
+		this.onCloseForm();
 	}
 
 	onCloseForm() {
 		this.changeIsShowForm.emit(this.isShowForm);
+	}
+
+	onUpdateNote() {
+		this.currentNote.title = this.title ? this.title : this.currentNote.title;
+		this.currentNote.content = this.content ? this.content : this.currentNote.content;
+		console.log(this.currentNote);
+		this.onCloseForm();
 	}
 }

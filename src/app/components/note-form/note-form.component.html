@@ -23,12 +23,23 @@
 			<div class="nm-btn-group">
 				<button class="btn btn-secondary"
 					(click)="onCloseForm()"
-				>Cancel</button>
-				<button class="btn btn-info"
-					(click)="addNote()"
 				>
-					Add
+					Cancel
 				</button>
+				<ng-container *ngIf="currentNote; else caseAddBtn">
+					<button class="btn btn-info"
+						(click)="onUpdateNote()"
+					>
+						UPDATE
+					</button>
+				</ng-container>
+				<ng-template #caseAddBtn>
+					<button class="btn btn-info"
+						(click)="onAddNote()"
+					>
+						ADD
+					</button>
+				</ng-template>
 				<!-- <input type="reset"
 				 	class="btn btn-info"
 					(click)="addNote(); $event.preventDefault();"
