@@ -16,7 +16,9 @@
 				</a>
 			</div>
 			<div class="col">
-				<nm-note-list [isShowForm]="isShowForm"></nm-note-list>
+				<nm-note-list [isShowForm]="isShowForm"
+					(changeIsShowForm)="onClickInteractingForm()"
+				></nm-note-list>
 			</div>
 			<div [ngClass]="{
 					'col-4': true,

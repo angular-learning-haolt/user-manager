@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NoteService } from './../../services/note.service';
 import { Note } from './../../models/note.class';
 
@@ -13,6 +13,9 @@ export class NoteListComponent implements OnInit {
 
 	@Input() isShowForm : boolean;
 
+	@Output('changeIsShowForm') 
+		changeIsShowForm = new EventEmitter();
+
 	constructor(
 		private _noteService : NoteService
 	) { }
@@ -24,7 +27,8 @@ export class NoteListComponent implements OnInit {
 	onEditNote(id : number) {
 		// alert('Do you delete this note?');
 		// console.log(id);
-		this.isShowForm = !this.isShowForm;
+		// this.isShowForm = !this.isShowForm;
+		this.changeIsShowForm.emit(this.isShowForm);
 		console.log(this.isShowForm);
 		let foundNote = this._noteService.getNoteByID(id);
 		console.log(foundNote);
