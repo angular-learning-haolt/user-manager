@@ -38,6 +38,7 @@ export class NoteFormComponent implements OnInit {
 
 	onCloseForm() {
 		this.changeIsShowForm.emit(this.isShowForm);
+		this.resetErrors();
 	}
 
 	onUpdateNote() {
@@ -56,14 +57,16 @@ export class NoteFormComponent implements OnInit {
 			let error = 'Please type content, you guys !';
 			this.errors.push(error);
 		}
-		else if(this.content.length > 5) {
-			let error = 'Sorry. Content dimension is not over 400 words.';
+		else if(this.content.length > 15) {
+			let error = 'Sorry. Content dimension is not over 15 words.';
 			this.errors.push(error);
 		}
 		return this.errors;
 	}
-	
+
 	resetErrors() {
 		this.errors = [];
+		this.title = '';
+		this.content = '';
 	}
 }
