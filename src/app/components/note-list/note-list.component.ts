@@ -31,9 +31,7 @@ export class NoteListComponent implements OnInit {
 		if (!this.isShowForm) {
 			this.changeIsShowForm.emit(this.isShowForm);
 		}
-		// console.log(this.isShowForm);
 		this.currentNote = this._noteService.getNoteByID(id);
-		// console.log(this.currentNote);
 		this.getCurrentNote.emit(this.currentNote);
 	}
 

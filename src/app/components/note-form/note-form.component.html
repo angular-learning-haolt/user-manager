@@ -8,7 +8,7 @@
 			    	class="form-control" 
 			    	[(ngModel)]="title"
 			    	[ngModelOptions]="{standalone: true}"
-			    	value="{{ currentNote?.title }}"
+			    	value="{{ currentNote?.title}}"
 			    >
 		  	</div>
 			<div class="form-group">
@@ -16,29 +16,34 @@
 			    <textarea class="form-control"
 					[(ngModel)]="content"
 					[ngModelOptions]="{standalone: true}"
-					value="{{ currentNote?.content }}"
+					value="{{ currentNote?.content}}"
 			    >
 			    </textarea>
 			</div>
 			<div class="nm-btn-group">
-				<button class="btn btn-secondary"
+				<input type="reset"
+				 	class="btn btn-secondary"
 					(click)="onCloseForm()"
+					value="Cancel" 
 				>
-					Cancel
-				</button>
 				<ng-container *ngIf="currentNote; else caseAddBtn">
-					<button class="btn btn-info"
+					<input type="reset"
+					 	class="btn btn-info"
 						(click)="onUpdateNote()"
+						value="UPDATE" 
 					>
-						UPDATE
-					</button>
 				</ng-container>
 				<ng-template #caseAddBtn>
-					<button class="btn btn-info"
+					<!-- <button class="btn btn-info"
 						(click)="onAddNote()"
 					>
 						ADD
-					</button>
+					</button> -->
+					<input type="reset"
+					 	class="btn btn-info"
+						(click)="onAddNote()"
+						value="ADD" 
+					>
 				</ng-template>
 				<!-- <input type="reset"
 				 	class="btn btn-info"

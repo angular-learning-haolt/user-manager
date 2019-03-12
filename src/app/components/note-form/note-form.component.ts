@@ -15,7 +15,7 @@ export class NoteFormComponent implements OnInit {
 	public content : string = '';
 	// public _currentNote : Note = new Note(null, '','');
 
-	@Input() currentNote: Note;
+	@Input('currentNote') currentNote: Note;
 	@Input() isShowForm : boolean;
 	@Output('changeIsShowForm') 
 		changeIsShowForm = new EventEmitter();
@@ -40,7 +40,7 @@ export class NoteFormComponent implements OnInit {
 	onUpdateNote() {
 		this.currentNote.title = this.title ? this.title : this.currentNote.title;
 		this.currentNote.content = this.content ? this.content : this.currentNote.content;
-		// console.log(this.currentNote);
+		console.log(this.currentNote);
 		this.onCloseForm();
 	}
 }
