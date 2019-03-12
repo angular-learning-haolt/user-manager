@@ -10,11 +10,14 @@ import { Note } from './../../models/note.class';
 export class NoteListComponent implements OnInit {
 
 	public notes : Note[] = [];
+	public currentNote : any;
 
 	@Input() isShowForm : boolean;
 
 	@Output('changeIsShowForm') 
 		changeIsShowForm = new EventEmitter();
+	@Output('getCurrentNote') 
+		getCurrentNote = new EventEmitter();
 
 	constructor(
 		private _noteService : NoteService
@@ -25,13 +28,13 @@ export class NoteListComponent implements OnInit {
 	}
 
 	onEditNote(id : number) {
-		// alert('Do you delete this note?');
-		// console.log(id);
-		// this.isShowForm = !this.isShowForm;
-		this.changeIsShowForm.emit(this.isShowForm);
-		console.log(this.isShowForm);
-		let foundNote = this._noteService.getNoteByID(id);
-		console.log(foundNote);
+		if (!this.isShowForm) {
+			this.changeIsShowForm.emit(this.isShowForm);
+		}
+		// console.log(this.isShowForm);
+		this.currentNote = this._noteService.getNoteByID(id);
+		// console.log(this.currentNote);
+		this.getCurrentNote.emit(this.currentNote);
 	}
 
 	onDeleteNote(id : number) {

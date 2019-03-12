@@ -52,7 +52,7 @@ export class NoteService {
 
 	getNoteByID(id: number) {
 		let foundNote = this.notes.filter(x => x.id === id);
-		return foundNote;
+		return foundNote[0];
 	}
 
 	deleteNote(id: number) {

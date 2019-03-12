@@ -18,6 +18,7 @@
 			<div class="col">
 				<nm-note-list [isShowForm]="isShowForm"
 					(changeIsShowForm)="onClickInteractingForm()"
+					(getCurrentNote)="onGetCurrentNote($event)"
 				></nm-note-list>
 			</div>
 			<div [ngClass]="{
@@ -25,7 +26,9 @@
 					'd-none': !isShowForm
 				}"
 			>
-				<nm-note-form></nm-note-form>
+				<nm-note-form
+					[currentNote]="currentNote"
+				></nm-note-form>
 			</div>
 		</div>
 	</div>
